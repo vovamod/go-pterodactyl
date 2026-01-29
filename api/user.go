@@ -18,19 +18,21 @@ type User struct {
 }
 
 type UserCreateOptions struct {
-	Email     string `json:"email"`
-	Username  string `json:"username"`
-	FirstName string `json:"first_name"`
-	LastName  string `json:"last_name"`
-	Password  string `json:"password,omitempty"`
-	RootAdmin bool   `json:"root_admin,omitempty"`
+	Email      string `json:"email"`
+	Username   string `json:"username"`
+	FirstName  string `json:"first_name"`
+	LastName   string `json:"last_name"`
+	Password   string `json:"password,omitempty"`
+	RootAdmin  bool   `json:"root_admin,omitempty"`
+	ExternalID string `json:"external_id,omitempty"`
 }
 
 type UserUpdateOptions struct {
-	Email     string `json:"email,omitempty"`
-	Username  string `json:"username,omitempty"`
-	FirstName string `json:"first_name,omitempty"`
-	LastName  string `json:"last_name,omitempty"`
-	Password  string `json:"password,omitempty"`
-	RootAdmin *bool  `json:"root_admin,omitempty"`
+	Email      string `json:"email,omitempty"`
+	Username   string `json:"username,omitempty"`
+	FirstName  string `json:"first_name,omitempty"`
+	LastName   string `json:"last_name,omitempty"`
+	Password   string `json:"password,omitempty"`
+	RootAdmin  bool   `json:"root_admin,omitempty"`
+	ExternalID string `json:"external_id,omitempty"`
 }
