@@ -2,10 +2,10 @@ package appapi
 
 import (
 	"context"
-	"github.com/davidarkless/go-pterodactyl/internal/testutil"
+	"github.com/vovamod/go-pterodactyl/internal/testutil"
 	"testing"
 
-	"github.com/davidarkless/go-pterodactyl/api"
+	"github.com/vovamod/go-pterodactyl/api"
 )
 
 func TestServersService_List(t *testing.T) {

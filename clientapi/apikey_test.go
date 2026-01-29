@@ -9,9 +9,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/davidarkless/go-pterodactyl/api"
-	"github.com/davidarkless/go-pterodactyl/errors"
-	"github.com/davidarkless/go-pterodactyl/internal/testutil"
+	"github.com/vovamod/go-pterodactyl/api"
+	"github.com/vovamod/go-pterodactyl/errors"
+	"github.com/vovamod/go-pterodactyl/internal/testutil"
 )
 
 func normaliseKeyTimes(k *api.APIKey) {

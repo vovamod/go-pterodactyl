@@ -7,7 +7,7 @@ import (
 	"os"
 	"strconv"
 
-	"github.com/davidarkless/go-pterodactyl"
+	"github.com/vovamod/go-pterodactyl"
 )
 
 func main() {

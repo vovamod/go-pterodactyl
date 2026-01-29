@@ -3,9 +3,10 @@ package appapi
 import (
 	"context"
 	"fmt"
-	"github.com/davidarkless/go-pterodactyl/api"
-	"github.com/davidarkless/go-pterodactyl/internal/crud"
-	"github.com/davidarkless/go-pterodactyl/internal/requester"
+
+	"github.com/vovamod/go-pterodactyl/api"
+	"github.com/vovamod/go-pterodactyl/internal/crud"
+	"github.com/vovamod/go-pterodactyl/internal/requester"
 )
 
 type eggsService struct {

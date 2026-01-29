@@ -3,8 +3,8 @@ package main
 import (
 	"context"
 	"fmt"
-	"github.com/davidarkless/go-pterodactyl"
-	"github.com/davidarkless/go-pterodactyl/api"
+	"github.com/vovamod/go-pterodactyl"
+	"github.com/vovamod/go-pterodactyl/api"
 	"log"
 	"os"
 	"strconv"

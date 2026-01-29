@@ -3,12 +3,12 @@ package appapi
 import (
 	"context"
 	"fmt"
-	"github.com/davidarkless/go-pterodactyl/internal/testutil"
+	"github.com/vovamod/go-pterodactyl/internal/testutil"
 	"strings"
 	"testing"
 	"time"
 
-	"github.com/davidarkless/go-pterodactyl/api"
+	"github.com/vovamod/go-pterodactyl/api"
 )
 
 func TestNodesService_List(t *testing.T) {

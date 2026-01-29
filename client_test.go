@@ -2,7 +2,7 @@ package pterodactyl_test
 
 import (
 	"context"
-	"github.com/davidarkless/go-pterodactyl"
+	"github.com/vovamod/go-pterodactyl"
 	"testing"
 )
 

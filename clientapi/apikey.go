@@ -5,8 +5,8 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	"github.com/davidarkless/go-pterodactyl/api"
-	"github.com/davidarkless/go-pterodactyl/internal/requester"
+	"github.com/vovamod/go-pterodactyl/api"
+	"github.com/vovamod/go-pterodactyl/internal/requester"
 )
 
 type apiKeysService struct{ client requester.Requester }

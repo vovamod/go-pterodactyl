@@ -2,7 +2,7 @@ package requester
 
 import (
 	"context"
-	"github.com/davidarkless/go-pterodactyl/api"
+	"github.com/vovamod/go-pterodactyl/api"
 	"io"
 	"net/http"
 )

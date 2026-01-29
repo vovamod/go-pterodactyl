@@ -3,7 +3,7 @@ package main
 import (
 	"context"
 	"fmt"
-	"github.com/davidarkless/go-pterodactyl"
+	"github.com/vovamod/go-pterodactyl"
 	"log"
 	"os"
 	"time"
