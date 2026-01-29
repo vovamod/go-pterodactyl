@@ -25,6 +25,7 @@ type UserCreateOptions struct {
 	Password   string `json:"password,omitempty"`
 	RootAdmin  bool   `json:"root_admin,omitempty"`
 	ExternalID string `json:"external_id,omitempty"`
+	Language   string `json:"language,omitempty"`
 }
 
 type UserUpdateOptions struct {
@@ -35,4 +36,5 @@ type UserUpdateOptions struct {
 	Password   string `json:"password,omitempty"`
 	RootAdmin  bool   `json:"root_admin,omitempty"`
 	ExternalID string `json:"external_id,omitempty"`
+	Language   string `json:"language,omitempty"`
 }
