@@ -74,6 +74,11 @@ type ServerCreateOptions struct {
 	FeatureLimits ServerFeatureLimits `json:"feature_limits"`
 	ExternalID    *string             `json:"external_id,omitempty"`
 	Description   *string             `json:"description,omitempty"`
+	Deploy        *struct {
+		Locations   []int    `json:"locations"`
+		DedicatedIP bool     `json:"dedicated_ip"`
+		PortRange   []string `json:"port_range"`
+	} `json:"deploy,omitempty"`
 
 	// StartWhenCreated specifies if the server should start after being installed.
 	// The json tag "start_on_completion" is correct for the Pterodactyl API.
