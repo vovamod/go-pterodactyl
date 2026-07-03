@@ -5,27 +5,31 @@ import "time"
 type Egg struct {
 	ID           int               `json:"id"`
 	UUID         string            `json:"uuid"`
-	NestID       int               `json:"nest_id"`
+	Name         string            `json:"name"`
+	NestID       int               `json:"nest"`
 	Author       string            `json:"author"`
 	Description  string            `json:"description"`
+	DockerImage  string            `json:"docker_image"`
 	DockerImages map[string]string `json:"docker_images"`
-	Config       any               `json:"config"`
-	Startup      any               `json:"startup"`
-	Script       any               `json:"script"`
+	Config       *EggConfig        `json:"config"`
+	Startup      string            `json:"startup"`
+	Script       *EggScript        `json:"script"`
 	CreatedAt    time.Time         `json:"created_at"`
 	UpdatedAt    time.Time         `json:"updated_at"`
 }
 
 type EggConfig struct {
-	Files   any    `json:"files"`
-	Startup any    `json:"startup"`
-	Stop    string `json:"stop"`
-	Logs    any    `json:"logs"`
+	Files        map[string]any `json:"files"`
+	Startup      *EggStartup    `json:"startup"`
+	Stop         string         `json:"stop"`
+	Logs         any            `json:"logs"`
+	FileDenylist []string       `json:"file_denylist"`
+	Extends      any            `json:"extends"`
 }
 
 type EggStartup struct {
 	Done            string   `json:"done"`
-	UserInteraction []string `json:"user_interaction"`
+	UserInteraction []string `json:"user_interaction,omitempty"`
 }
 
 type EggScript struct {
