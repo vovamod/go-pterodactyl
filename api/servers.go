@@ -58,8 +58,8 @@ type ServerCreateOptions struct {
 	User        int    `json:"user"` // Owner ID
 	Nest        int    `json:"nest"`
 	Egg         int    `json:"egg"`
-	DockerImage string `json:"docker_image"`
-	Startup     string `json:"startup"`
+	DockerImage string `json:"docker_image,omitempty"`
+	Startup     string `json:"startup,omitempty"`
 
 	LocationID *int `json:"location_id,omitempty"`
 
