@@ -166,6 +166,21 @@ func (c *Client) NewRequest(ctx context.Context, method, endpoint string, body i
 		if len(options.Include) > 0 {
 			q.Set("include", strings.Join(options.Include, ","))
 		}
+		if options.FilterEmail != "" {
+			q.Set("filter[email]", options.FilterEmail)
+		}
+		if options.FilterUUID != "" {
+			q.Set("filter[uuid]", options.FilterUUID)
+		}
+		if options.FilterUsername != "" {
+			q.Set("filter[username]", options.FilterUsername)
+		}
+		if options.FilterExternalID != "" {
+			q.Set("filter[external_id]", options.FilterExternalID)
+		}
+		if options.Sort != "" {
+			q.Set("sort", options.Sort)
+		}
 		rel.RawQuery = q.Encode()
 	}
 

@@ -26,7 +26,13 @@ type Pagination struct {
 	Links any `json:"links,omitempty"`
 }
 type PaginationOptions struct {
-	Page    int `json:"page"`
-	PerPage int `json:"per_page"`
-	Include []string
+	Page    int      `json:"page"`
+	PerPage int      `json:"per_page"`
+	Include []string `json:"include,omitempty"`
+
+	FilterEmail      string `json:"filter_email,omitempty"`
+	FilterUUID       string `json:"filter_uuid,omitempty"`
+	FilterUsername   string `json:"filter_username,omitempty"`
+	FilterExternalID string `json:"filter_external_id,omitempty"`
+	Sort             string `json:"sort,omitempty"`
 }
