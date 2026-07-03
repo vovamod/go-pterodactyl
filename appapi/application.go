@@ -2,6 +2,7 @@ package appapi
 
 import (
 	"context"
+
 	"github.com/vovamod/go-pterodactyl/api"
 )
 
@@ -35,6 +36,7 @@ type EggsService interface {
 	List(ctx context.Context, options *api.PaginationOptions) ([]*api.Egg, *api.Meta, error)
 	ListAll(ctx context.Context) ([]*api.Egg, error)
 	Get(ctx context.Context, eggID int) (*api.Egg, error)
+	GetWithVariables(ctx context.Context, eggID int) (*api.Egg, []*api.EggVariable, error)
 }
 
 // NestsService defines the actions for nests and provides access to egg management.
