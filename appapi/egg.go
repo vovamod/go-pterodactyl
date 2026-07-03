@@ -32,3 +32,25 @@ func (s *eggsService) Get(ctx context.Context, eggID int) (*api.Egg, error) {
 	endpoint := fmt.Sprintf("/api/application/nests/%d/eggs", s.nestID)
 	return crud.Get[api.Egg](ctx, s.client, endpoint, eggID)
 }
+
+func (s *eggsService) GetWithVariables(ctx context.Context, eggID int) (*api.Egg, []*api.EggVariable, error) {
+	endpoint := fmt.Sprintf("/api/application/nests/%d/eggs/%d", s.nestID, eggID)
+
+	opts := &api.PaginationOptions{Include: []string{"variables"}}
+	req, err := s.client.NewRequest(ctx, "GET", endpoint, nil, opts)
+	if err != nil {
+		return nil, nil, err
+	}
+
+	resp := &api.EggWithVariablesResponse{}
+	if _, err = s.client.Do(ctx, req, resp); err != nil {
+		return nil, nil, err
+	}
+
+	vars := make([]*api.EggVariable, len(resp.Relationships.Variables.Data))
+	for i, item := range resp.Relationships.Variables.Data {
+		vars[i] = item.Attributes
+	}
+
+	return resp.Attributes, vars, nil
+}

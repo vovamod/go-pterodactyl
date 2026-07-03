@@ -39,3 +39,24 @@ type EggScript struct {
 	Container  string `json:"container"`
 	Extends    any    `json:"extends"`
 }
+
+type EggVariable struct {
+	ID           int    `json:"id"`
+	EggID        int    `json:"egg_id"`
+	Name         string `json:"name"`
+	Description  string `json:"description"`
+	EnvVariable  string `json:"env_variable"`
+	DefaultValue string `json:"default_value"`
+	UserViewable bool   `json:"user_viewable"`
+	UserEditable bool   `json:"user_editable"`
+	Rules        string `json:"rules"`
+}
+
+type EggWithVariablesResponse struct {
+	Attributes    *Egg `json:"attributes"`
+	Relationships struct {
+		Variables struct {
+			Data []ListItem[EggVariable] `json:"data"`
+		} `json:"variables"`
+	} `json:"relationships"`
+}
