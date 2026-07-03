@@ -47,10 +47,11 @@ func (s *eggsService) GetWithVariables(ctx context.Context, eggID int) (*api.Egg
 		return nil, nil, err
 	}
 
-	vars := make([]*api.EggVariable, len(resp.Relationships.Variables.Data))
-	for i, item := range resp.Relationships.Variables.Data {
+	vars := make([]*api.EggVariable, len(resp.Attributes.Relationships.Variables.Data))
+	for i, item := range resp.Attributes.Relationships.Variables.Data {
 		vars[i] = item.Attributes
 	}
 
-	return resp.Attributes, vars, nil
+	egg := resp.Attributes.Egg
+	return &egg, vars, nil
 }

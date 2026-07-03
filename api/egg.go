@@ -53,10 +53,12 @@ type EggVariable struct {
 }
 
 type EggWithVariablesResponse struct {
-	Attributes    *Egg `json:"attributes"`
-	Relationships struct {
-		Variables struct {
-			Data []ListItem[EggVariable] `json:"data"`
-		} `json:"variables"`
-	} `json:"relationships"`
+	Attributes struct {
+		Egg
+		Relationships struct {
+			Variables struct {
+				Data []ListItem[EggVariable] `json:"data"`
+			} `json:"variables"`
+		} `json:"relationships"`
+	} `json:"attributes"`
 }
