@@ -73,6 +73,12 @@ type NodeCreateOptions struct {
 	UploadSize      *int    `json:"upload_size,omitempty"`
 }
 
+type NodeDeployableOptions struct {
+	PaginationOptions
+	Memory int // MB
+	Disk   int // MB
+}
+
 type NodeUpdateOptions struct {
 	Name               string  `json:"name,omitempty"`
 	LocationID         int     `json:"location_id,omitempty"`

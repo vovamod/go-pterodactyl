@@ -30,6 +30,7 @@ type NodesService interface {
 	Update(ctx context.Context, nodeID int, options api.NodeUpdateOptions) (*api.Node, error)
 	Delete(ctx context.Context, nodeID int) error
 	Allocations(ctx context.Context, nodeID int) AllocationsService
+	GetDeployable(ctx context.Context, options *api.NodeDeployableOptions) ([]*api.Node, *api.Meta, error)
 }
 
 type EggsService interface {

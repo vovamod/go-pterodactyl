@@ -5,6 +5,8 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"strconv"
+
 	"github.com/vovamod/go-pterodactyl/api"
 	"github.com/vovamod/go-pterodactyl/internal/crud"
 	"github.com/vovamod/go-pterodactyl/internal/requester"
@@ -12,6 +14,40 @@ import (
 
 type nodesService struct {
 	client requester.Requester
+}
+
+func (s *nodesService) GetDeployable(ctx context.Context, options *api.NodeDeployableOptions) ([]*api.Node, *api.Meta, error) {
+	var pagOpts *api.PaginationOptions
+	if options != nil {
+		pagOpts = &options.PaginationOptions
+	}
+
+	req, err := s.client.NewRequest(ctx, "GET", "/api/application/nodes/deployable", nil, pagOpts)
+	if err != nil {
+		return nil, nil, err
+	}
+
+	if options != nil {
+		q := req.URL.Query()
+		if options.Memory > 0 {
+			q.Set("memory", strconv.Itoa(options.Memory))
+		}
+		if options.Disk > 0 {
+			q.Set("disk", strconv.Itoa(options.Disk))
+		}
+		req.URL.RawQuery = q.Encode()
+	}
+
+	resp := &api.PaginatedResponse[api.Node]{}
+	if _, err = s.client.Do(ctx, req, resp); err != nil {
+		return nil, nil, err
+	}
+
+	out := make([]*api.Node, len(resp.Data))
+	for i, item := range resp.Data {
+		out[i] = item.Attributes
+	}
+	return out, &resp.Meta, nil
 }
 
 func NewNodesService(client requester.Requester) NodesService {
