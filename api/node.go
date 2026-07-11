@@ -3,26 +3,32 @@ package api
 import "time"
 
 type Node struct {
-	ID                 int       `json:"id"`
-	UUID               string    `json:"uuid"`
-	Public             bool      `json:"public"`
-	Name               string    `json:"name"`
-	Description        *string   `json:"description"`
-	LocationID         int       `json:"location_id"`
-	FQDN               string    `json:"fqdn"`
-	Scheme             string    `json:"scheme"`
-	BehindProxy        bool      `json:"behind_proxy"`
-	Memory             int       `json:"memory"`
-	MemoryOverallocate int       `json:"memory_overallocate"`
-	Disk               int       `json:"disk"`
-	DiskOverallocate   int       `json:"disk_overallocate"`
-	DaemonListen       int       `json:"daemon_listen"`
-	DaemonSFTP         int       `json:"daemon_sftp"`
-	DaemonBase         string    `json:"daemon_base"`
-	MaintenanceMode    bool      `json:"maintenance_mode"`
-	UploadSize         int       `json:"upload_size"`
-	CreatedAt          time.Time `json:"created_at"`
-	UpdatedAt          time.Time `json:"updated_at"`
+	ID                 int                    `json:"id"`
+	UUID               string                 `json:"uuid"`
+	Public             bool                   `json:"public"`
+	Name               string                 `json:"name"`
+	Description        *string                `json:"description"`
+	LocationID         int                    `json:"location_id"`
+	FQDN               string                 `json:"fqdn"`
+	Scheme             string                 `json:"scheme"`
+	BehindProxy        bool                   `json:"behind_proxy"`
+	Memory             int                    `json:"memory"`
+	MemoryOverallocate int                    `json:"memory_overallocate"`
+	Disk               int                    `json:"disk"`
+	DiskOverallocate   int                    `json:"disk_overallocate"`
+	DaemonListen       int                    `json:"daemon_listen"`
+	DaemonSFTP         int                    `json:"daemon_sftp"`
+	DaemonBase         string                 `json:"daemon_base"`
+	MaintenanceMode    bool                   `json:"maintenance_mode"`
+	UploadSize         int                    `json:"upload_size"`
+	AllocatedResources NodeAllocatedResources `json:"allocated_resources"`
+	CreatedAt          time.Time              `json:"created_at"`
+	UpdatedAt          time.Time              `json:"updated_at"`
+}
+
+type NodeAllocatedResources struct {
+	Memory int `json:"memory"`
+	Disk   int `json:"disk"`
 }
 
 type NodeConfiguration struct {
