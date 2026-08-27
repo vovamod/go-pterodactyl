@@ -93,14 +93,14 @@ type ServerUpdateDetailsOptions struct {
 }
 
 type ServerUpdateBuildOptions struct {
-	Allocation    int                 `json:"allocation_id"` // The primary allocation ID
+	Allocation    int                 `json:"allocation"` // The primary allocation ID
 	Memory        int                 `json:"memory,omitempty"`
 	Swap          int                 `json:"swap,omitempty"`
 	Disk          int                 `json:"disk,omitempty"`
 	IO            int                 `json:"io,omitempty"`
 	CPU           int                 `json:"cpu,omitempty"`
 	Threads       *string             `json:"threads,omitempty"`
-	FeatureLimits ServerFeatureLimits `json:"feature_limits,omitempty"`
+	FeatureLimits ServerFeatureLimits `json:"feature_limits"`
 }
 
 type ServerUpdateStartupOptions struct {
